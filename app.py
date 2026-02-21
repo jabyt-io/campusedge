@@ -16,7 +16,7 @@ import os
 st.set_page_config(
     page_title="CampusEdge – Market Intelligence",
     page_icon="🎯",
-    layout="wide",
+    layout="centered",
     initial_sidebar_state="expanded"
 )
 
@@ -85,6 +85,34 @@ html, body, [class*="css"] { font-family: 'Space Grotesk', sans-serif !important
 .main  { background-color: #171523 !important; }
 section[data-testid="stSidebar"] { background-color: #1e1a2e !important; border-right: 1px solid #3d2f5a !important; }
 .block-container { padding: 2rem 3rem; background-color: #171523 !important; }
+
+/* ── Mobile responsive ─────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .block-container { padding: 1rem 1rem !important; }
+  /* Force sidebar toggle button to always show on mobile */
+  button[data-testid="collapsedControl"] {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    position: fixed !important;
+    top: 0.6rem !important;
+    left: 0.6rem !important;
+    z-index: 9999 !important;
+    background: #c482d5 !important;
+    border-radius: 8px !important;
+    padding: 6px 10px !important;
+    color: white !important;
+  }
+  /* Keep sidebar full width on mobile when open */
+  section[data-testid="stSidebar"] {
+    width: 80vw !important;
+    min-width: 260px !important;
+  }
+  /* Shrink main content font sizes */
+  .hero-title { font-size: 2rem !important; }
+  .section-header { font-size: 1.1rem !important; }
+  .metric-val { font-size: 1.6rem !important; }
+}
 div[data-testid="stForm"] { background-color: #232131 !important; border: 1px solid #3d2f5a !important; }
 div.stButton > button[kind="primary"] { background-color: #c482d5 !important; border-color: #c482d5 !important; color: #fff !important; }
 div.stButton > button[kind="primary"]:hover { background-color: #b36ec0 !important; }
